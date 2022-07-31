@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sass/works.css">
+</head>
+
+<body>
+    <nav>
+        <input id="nav-toggle" type="checkbox" />
+        <img src="img/logo.png" alt="Logo" class="logo" />
+        <ul class="links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./works.html">Works</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+    </nav>
+
+
+    <div class="works-container">
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')">Show all</button>
+            <button class="btn" onclick="filterSelection('Ecommerce')">Ecommerce</button>
+            <button class="btn" onclick="filterSelection('Food')"> Food</button>
+            <button class="btn" onclick="filterSelection('Health')"> Health</button>
+            <button class="btn" onclick="filterSelection('Streaming')">Streaming</button>
+            <button class="btn" onclick="filterSelection('Education')">Education</button>
+            <button class="btn" onclick="filterSelection('Portfolio')"> Portfolio</button>
+        </div>
+
+        <div class="dropdown">
+            <div class="dropbtn"><img src="img/list.png" alt=""></div>
+            <div class="dropdown-content">
+            <a onclick="filterSelection('all')">Show all</a>
+            <a onclick="filterSelection('Ecommerce')">Ecommerce</a>
+            <a onclick="filterSelection('Food')">Food</a>
+            <a onclick="filterSelection('Health')">Health</a>
+            <a onclick="filterSelection('Streaming')">Streaming</a>
+            <a onclick="filterSelection('Education')">Education</a>
+            <a onclick="filterSelection('Portfolio')">Portfolio</a>
+            </div>
+          </div>
+
+
+        <div class="container">
+            <div class="filter Ecommerce">
+                <div class="inner-filter">
+                    <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam</div>
+                    <img src="img/pro1.png" alt="">
+                </div>
+            </div>
+            <div class="filter Ecommerce">
+                <div class="inner-filter">
+                    <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam</div>
+                    <img src="img/pro1.png" alt="">
+                </div>
+            </div>
+            
+            <div class="filter Food">
+                <div class="inner-filter">
+                    <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam</div>
+                    <img src="img/pro2.png" alt="">
+                </div>
+            </div>
+            
+            <div class="filter Health">
+                <div class="inner-filter">
+                    <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam</div>
+                    <img src="img/pro3.png" alt="">
+                </div>
+            </div>
+
+            <div class="filter Streaming">
+                <div class="inner-filter">
+                    <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam</div>
+                    <img src="img/pro4.png" alt="">
+                </div>
+            </div>    
+            
+            <div class="filter Education">
+                <div class="inner-filter">
+                    <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam</div>
+                    <img src="img/pro5.png" alt="">
+                </div>
+            </div>  
+
+            <div class="filter Portfolio">
+                <div class="inner-filter">
+                    <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam</div>
+                    <img src="img/pro5.png" alt="">
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <script>
+
+            filterSelection("all")
+            function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filter");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+            RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+            }
+            }
+
+            function AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+            }
+            }
+
+            function RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);     
+            }
+            }
+            element.className = arr1.join(" ");
+            }
+
+            // Add active class to the current button (highlight it)
+            var btnContainer = document.getElementById("myBtnContainer");
+            var btns = btnContainer.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+
+            });
+            }
+
+    </script>
+
+
+<footer>
+    <div class="logo">
+        <img src="./img/logo.png" alt="">
+    </div>
+    <div class="fdesc">Created By <span>Siddhant S. Bilange</span></div>
+</footer>
+</body>
+
+</html>
